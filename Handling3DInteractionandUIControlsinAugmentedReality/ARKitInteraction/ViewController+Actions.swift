@@ -17,6 +17,7 @@ extension ViewController: UIGestureRecognizerDelegate {
     // MARK: - Interface Actions
     
     /// Displays the `VirtualObjectSelectionViewController` from the `addObjectButton` or in response to a tap gesture in the `sceneView`.
+    /// 展示选择虚拟物体选择框
     @IBAction func showVirtualObjectSelectionViewController() {
         // Ensure adding objects is an available action and we are not loading another object (to avoid concurrent modifications of the scene).
         guard !addObjectButton.isHidden && !virtualObjectLoader.isLoading else { return }
@@ -26,6 +27,7 @@ extension ViewController: UIGestureRecognizerDelegate {
     }
     
     /// Determines if the tap gesture for presenting the `VirtualObjectSelectionViewController` should be used.
+    /// 确保加载的虚拟物体不为空，才弹出选择框
     func gestureRecognizerShouldBegin(_: UIGestureRecognizer) -> Bool {
         return virtualObjectLoader.loadedObjects.isEmpty
     }
