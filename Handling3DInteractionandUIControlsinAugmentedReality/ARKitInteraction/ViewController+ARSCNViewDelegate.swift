@@ -12,6 +12,7 @@ extension ViewController: ARSCNViewDelegate, ARSessionDelegate {
     
     // MARK: - ARSCNViewDelegate
     
+    /// 实现这个来执行每帧游戏逻辑。 在评估任何动画和动作并模拟任何物理效果之前，每帧调用一次。
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         DispatchQueue.main.async {
             self.virtualObjectInteraction.updateObjectToCurrentTrackingPosition()
