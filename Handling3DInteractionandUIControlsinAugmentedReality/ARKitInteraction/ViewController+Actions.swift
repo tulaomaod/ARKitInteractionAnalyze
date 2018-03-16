@@ -35,6 +35,7 @@ extension ViewController: UIGestureRecognizerDelegate {
     }
     
     /// - Tag: restartExperience
+    /// 重启体验
     func restartExperience() {
         guard isRestartAvailable, !virtualObjectLoader.isLoading else { return }
         isRestartAvailable = false
