@@ -3,6 +3,7 @@ See LICENSE folder for this sample’s licensing information.
 
 Abstract:
 A `SCNReferenceNode` subclass for virtual objects placed into the AR scene.
+虚拟对象
 */
 
 import Foundation
@@ -12,14 +13,18 @@ import ARKit
 class VirtualObject: SCNReferenceNode {
     
     /// The model name derived from the `referenceURL`.
+    /// 模型名称
     var modelName: String {
+        
         return referenceURL.lastPathComponent.replacingOccurrences(of: ".scn", with: "")
     }
     
     /// Use average of recent virtual object distances to avoid rapid changes in object scale.
+    /// 使用最近虚拟物体距离的平均值来避免物体比例的快速变化
     private var recentVirtualObjectDistances = [Float]()
     
     /// Resets the objects poisition smoothing.
+    /// 重置对象的位置平滑
     func reset() {
         recentVirtualObjectDistances.removeAll()
     }
@@ -28,7 +33,7 @@ class VirtualObject: SCNReferenceNode {
      Set the object's position based on the provided position relative to the `cameraTransform`.
      If `smoothMovement` is true, the new position will be averaged with previous position to
      avoid large jumps.
-     
+     放置对象
      - Tag: VirtualObjectSetPosition
      */
     func setPosition(_ newPosition: float3, relativeTo cameraTransform: matrix_float4x4, smoothMovement: Bool) {
@@ -36,6 +41,7 @@ class VirtualObject: SCNReferenceNode {
         var positionOffsetFromCamera = newPosition - cameraWorldPosition
         
         // Limit the distance of the object from the camera to a maximum of 10 meters.
+        // 将物体与相机的距离限制为最大10米
         if simd_length(positionOffsetFromCamera) > 10 {
             positionOffsetFromCamera = simd_normalize(positionOffsetFromCamera)
             positionOffsetFromCamera *= 10
@@ -46,11 +52,16 @@ class VirtualObject: SCNReferenceNode {
          updates. Notice that the distance is applied to the vector from
          the camera to the content, so it affects only the percieved distance to the
          object. Averaging does _not_ make the content "lag".
+         
+         计算最近十次更新中物体距相机的平均距离
+         请注意，该距离将应用于从相机到内容的矢量，因此它只影响与对象相距的距离
+         平均不会使内容“滞后”
          */
         if smoothMovement {
             let hitTestResultDistance = simd_length(positionOffsetFromCamera)
             
             // Add the latest position and keep up to 10 recent distances to smooth with.
+            // 获取最新的10个位置
             recentVirtualObjectDistances.append(hitTestResultDistance)
             recentVirtualObjectDistances = Array(recentVirtualObjectDistances.suffix(10))
             
