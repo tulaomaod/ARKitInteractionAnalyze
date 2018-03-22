@@ -72,6 +72,9 @@ class ViewController: UIViewController {
          ambient light source and modulates its intensity. This sample app
          instead modulates a global lighting environment map for use with
          physically based materials, so disable automatic lighting.
+         
+         `sceneView.automaticallyUpdatesLighting`选项创建一个环境光源并调整其强度。
+         这个示例应用程序改为调制全局照明环境地图以用于基于物理的材质，因此禁用自动照明。
          */
         sceneView.automaticallyUpdatesLighting = false
         if let environmentMap = UIImage(named: "Models.scnassets/sharedImages/environment_blur.exr") {

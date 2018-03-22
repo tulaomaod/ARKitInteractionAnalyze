@@ -29,6 +29,7 @@ extension ViewController: ARSCNViewDelegate, ARSessionDelegate {
             lightingEnvironment.intensity = baseIntensity
         }
     }
+    
     /// 当新节点已映射到给定锚点时调用
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }

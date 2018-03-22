@@ -16,19 +16,24 @@ class VirtualObjectARView: ARSCNView {
         var origin: float3
         var direction: float3
 
+        // 与水平面的交叉点
         func intersectionWithHorizontalPlane(atY planeY: Float) -> float3? {
             let normalizedDirection = simd_normalize(direction)
 
             // Special case handling: Check if the ray is horizontal as well.
+            // 特殊情况处理： 检查射线是否是水平的
             if normalizedDirection.y == 0 {
                 if origin.y == planeY {
                     /*
                      The ray is horizontal and on the plane, thus all points on the ray
                      intersect with the plane. Therefore we simply return the ray origin.
+                     射线是水平的并且在平面上，因此射线上的所有点都与平面相交。
+                     因此我们只需返回射线的原点。
                      */
                     return origin
                 } else {
                     // The ray is parallel to the plane and never intersects.
+                    // 射线平行于平面，从不相交。
                     return nil
                 }
             }
