@@ -118,32 +118,6 @@
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="AjQ-5W-To9">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7a5-ST-8IP" customClass="SegmentedControl" customModule="ARKitInteraction" customModuleProvider="target">
-                                            <rect key="frame" x="185" y="627" width="180" height="30"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="180" id="hey-x0-GHa"/>
-                                                <constraint firstAttribute="height" constant="30" id="hkX-gO-cso"/>
-                                            </constraints>
-                                        </view>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBE-eh-eVd" customClass="SquishButton" customModule="ARKitInteraction" customModuleProvider="target">
-                                            <rect key="frame" x="259.5" y="557" width="31" height="60"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="60" id="rEf-aT-bT5"/>
-                                            </constraints>
-                                            <state key="normal" title="录制"/>
-                                            <connections>
-                                                <action selector="recordVideo:" destination="BV1-FR-VrT" eventType="touchUpInside" id="4Jt-uj-fgd"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="7a5-ST-8IP" secondAttribute="trailing" constant="10" id="LDc-AE-Rxb"/>
-                                        <constraint firstAttribute="bottom" secondItem="7a5-ST-8IP" secondAttribute="bottom" constant="10" id="OGp-Xa-b1Y"/>
-                                        <constraint firstItem="7a5-ST-8IP" firstAttribute="centerX" secondItem="LBE-eh-eVd" secondAttribute="centerX" id="hRz-2x-MGJ"/>
-                                        <constraint firstItem="7a5-ST-8IP" firstAttribute="top" secondItem="LBE-eh-eVd" secondAttribute="bottom" constant="10" id="sTm-nI-J4J"/>
-                                    </constraints>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
@@ -156,6 +130,25 @@
                                     <segue destination="ri3-7p-e6d" kind="embed" id="uiU-1f-e8S"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7a5-ST-8IP" customClass="SegmentedControl" customModule="ARKitInteraction" customModuleProvider="target">
+                                <rect key="frame" x="185" y="627" width="180" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="hey-x0-GHa"/>
+                                    <constraint firstAttribute="height" constant="30" id="hkX-gO-cso"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBE-eh-eVd" customClass="SquishButton" customModule="ARKitInteraction" customModuleProvider="target">
+                                <rect key="frame" x="245" y="557" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="CrT-Ho-Eoh"/>
+                                    <constraint firstAttribute="height" constant="60" id="rEf-aT-bT5"/>
+                                </constraints>
+                                <state key="normal" title="录制"/>
+                                <connections>
+                                    <action selector="recordVideo:" destination="BV1-FR-VrT" eventType="touchUpInside" id="4Jt-uj-fgd"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcf-ic-uGo" userLabel="Add Object Button">
                                 <rect key="frame" x="70" y="604" width="48" height="48"/>
                                 <constraints>
@@ -175,9 +168,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="GBj-4O-Whc" firstAttribute="trailing" secondItem="7a5-ST-8IP" secondAttribute="trailing" constant="10" id="7hY-Lm-Pft"/>
                             <constraint firstItem="xcf-ic-uGo" firstAttribute="centerX" secondItem="RLh-bf-1c3" secondAttribute="centerX" multiplier="0.5" id="Aab-2O-nm6"/>
                             <constraint firstItem="3cb-dQ-oXx" firstAttribute="width" secondItem="xcf-ic-uGo" secondAttribute="width" constant="-5" id="Fg7-D6-Eh5"/>
+                            <constraint firstItem="7a5-ST-8IP" firstAttribute="top" secondItem="LBE-eh-eVd" secondAttribute="bottom" constant="10" id="HWc-8U-2aO"/>
                             <constraint firstAttribute="trailing" secondItem="R5W-V8-6lY" secondAttribute="trailing" id="J42-1v-Ihf"/>
+                            <constraint firstItem="7a5-ST-8IP" firstAttribute="centerX" secondItem="LBE-eh-eVd" secondAttribute="centerX" id="KOb-aY-J09"/>
                             <constraint firstItem="3cb-dQ-oXx" firstAttribute="centerX" secondItem="xcf-ic-uGo" secondAttribute="centerX" id="KPf-Pf-2mp"/>
                             <constraint firstItem="tnx-rc-95S" firstAttribute="top" secondItem="GBj-4O-Whc" secondAttribute="top" id="Sdx-fT-fqG"/>
                             <constraint firstItem="R5W-V8-6lY" firstAttribute="leading" secondItem="RLh-bf-1c3" secondAttribute="leading" id="Yj0-Fo-B5n"/>
@@ -191,6 +187,7 @@
                             <constraint firstItem="3cb-dQ-oXx" firstAttribute="height" secondItem="xcf-ic-uGo" secondAttribute="height" constant="-5" id="szW-aA-CXv"/>
                             <constraint firstItem="GBj-4O-Whc" firstAttribute="bottom" secondItem="xcf-ic-uGo" secondAttribute="bottom" constant="15" id="w7D-gO-FfL"/>
                             <constraint firstItem="E6c-py-dvH" firstAttribute="leading" secondItem="GBj-4O-Whc" secondAttribute="leading" id="wEL-Op-yTe"/>
+                            <constraint firstItem="GBj-4O-Whc" firstAttribute="bottom" secondItem="7a5-ST-8IP" secondAttribute="bottom" constant="10" id="x6B-qG-rhV"/>
                             <constraint firstItem="GBj-4O-Whc" firstAttribute="trailing" secondItem="tnx-rc-95S" secondAttribute="trailing" id="yUU-ir-Rk1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GBj-4O-Whc"/>
