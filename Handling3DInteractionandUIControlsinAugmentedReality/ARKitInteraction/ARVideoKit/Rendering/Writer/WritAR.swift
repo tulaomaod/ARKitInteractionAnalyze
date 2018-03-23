@@ -48,6 +48,7 @@ internal class WritAR:NSObject, AVCaptureAudioDataOutputSampleBufferDelegate {
             })
         }
         
+        
         //HEVC file format only supports A10 Fusion Chip or higher.
         //to support HEVC, make sure to check if the device is iPhone 7 or higher
         videoOutputSettings = [
