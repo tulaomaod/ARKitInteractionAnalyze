@@ -103,6 +103,8 @@ class ViewController: UIViewController {
         
         // 录制设置
         setupRecorder()
+        // 底部选择按钮
+        configureSegmentedControl()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -258,9 +260,6 @@ class ViewController: UIViewController {
         recorder?.inputViewOrientations = [.landscapeLeft, .landscapeRight, .portrait]
         // Configure RecordAR to store media files in local app directory
         recorder?.deleteCacheWhenExported = false
-        
-        // configureNavigationBelowSegmentedControl()
-        configureSegmentedControl()
     }
 
     // MARK: - Scene content setup
@@ -306,6 +305,7 @@ class ViewController: UIViewController {
         }
         
         // We should always have a valid world position unless the sceen is just being initialized.
+        // 除非屏幕初始化， 否则我们应该拥有一个有效的世界位置
         guard let (worldPosition, planeAnchor, _) = sceneView.worldPosition(fromScreenPosition: screenCenter, objectPosition: focusSquare.lastPosition) else {
             updateQueue.async {
                 self.focusSquare.state = .initializing
