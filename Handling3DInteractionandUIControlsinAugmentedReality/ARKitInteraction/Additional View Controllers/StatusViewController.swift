@@ -105,6 +105,7 @@ class StatusViewController: UIViewController {
             self.cancelScheduledMessage(for: .trackingStateEscalation)
 
             var message = trackingState.presentationString
+            
             if let recommendation = trackingState.recommendation {
                 message.append(": \(recommendation)")
             }
@@ -151,8 +152,9 @@ extension ARCamera.TrackingState {
             return "TRACKING LIMITED\nLow detail"
         case .limited(.initializing):
             return "Initializing"
+        case .limited(.relocalizing):
+            return "relocalizing"
         }
-    }
 
     var recommendation: String? {
         switch self {
